@@ -105,6 +105,11 @@ talks.push(
   {id:"V08",track:"vibe",type:"观点",title:t("对谈：AI 时代的“一人公司”的审美表达与商业逻辑","Dialogue: Aesthetic Expression and Business Logic of the One-Person Company"),speaker:t("刘飞 × AJ × 抽象仔 XEIIZO","Liu Fei × AJ × Chouxiangzai XEIIZO"),role:t("产品经理、播客主理人 × WaytoAGI 创始人 × AI影视创作者","Product manager and podcaster × WaytoAGI founder × AI filmmaker"),overview:t("围绕 OPC 的商业潜力、生态支持、创作边界与个人资产展开的圆桌讨论。","A roundtable on the commercial potential, support systems and creative boundaries of OPCs."),core:[t("讨论区分了 OPC 与传统自由职业者：重点不只是一个人完成更多工作，而是一个人能否搭建由 AI、工具、流程和外部服务组成的完整系统。","The panel distinguishes an OPC from freelancing through system-building."),t("当执行成本下降，市场更看重能否迅速验证并持续行动。想法本身不再稀缺，把想法推进到用户、产品和商业结果的执行力更重要。","As execution costs fall, rapid validation and sustained action become more valuable."),t("面向所有人的通用产品越来越难。模块化、定制化和围绕具体人群构建的小产品，可能更适合个人公司进入市场。","Modular products for specific audiences may suit OPCs better than universal products."),t("圆桌反复回到个人资产：风格、知识、内容、用户关系和工作流需要持续沉淀，而不是每个项目结束后重新归零。","The discussion repeatedly returns to accumulating style, knowledge, audience and workflow assets.")],points:[t("OPC 的核心是编排系统，不是一个人承担所有劳动。","OPC is about orchestrating a system, not doing every task alone."),t("执行、验证与资产沉淀比单个创意更重要。","Execution, validation and asset accumulation outweigh isolated ideas."),t("更具体、更模块化的产品可能更适合个人公司。","Specific and modular products may be better suited to OPCs.")]}
 );
 
+// Keep every index and next-talk transition aligned with the live programme timeline.
+const chronologicalTalkIds=["N01","N02","N03","N04","N05","N06","V00","V01","V02","V03","V04","V05","V06","V07","V08"];
+const chronologicalRank=new Map(chronologicalTalkIds.map((id,index)=>[id,index]));
+talks.sort((a,b)=>(chronologicalRank.get(a.id)??Number.MAX_SAFE_INTEGER)-(chronologicalRank.get(b.id)??Number.MAX_SAFE_INTEGER));
+
 // Edited from the full morning transcript as long-form knowledge-base articles.
 const morningLongform:Record<string,Text[]>={
   N01:[
