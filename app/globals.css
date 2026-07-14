@@ -143,3 +143,30 @@ body{font-family:var(--sans);font-size:16px;line-height:1.65;letter-spacing:var(
   .lightbox{padding:12px}.lightbox-panel{width:100%;padding:10px}.lightbox-panel img{max-height:84vh}.lightbox-close{right:8px;top:8px}
 }
 @media(hover:none){.image-zoom{opacity:1;transform:none}}
+
+/* Authorship — present in the first viewport, detail reading view and closing colophon. */
+.topline>span:nth-child(2){font-size:0;text-align:center}
+.topline>span:nth-child(2)::after{
+  content:"YVEN’S NOTES FROM 2026 ALIBABA DESIGN D20";
+  display:block;font:11px/1.4 var(--font-geist-mono);letter-spacing:.1em
+}
+.detail-top::after{
+  content:"YVEN’S NOTES / 2026 ALIBABA DESIGN D20";
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font:10px/1.3 var(--font-geist-mono);letter-spacing:.1em;white-space:nowrap;
+  opacity:.72;transition:opacity .25s ease,transform .3s ease
+}
+.detail-top.is-scrolled::after{opacity:0;transform:translate(-50%,-70%)}
+footer>div:first-child{letter-spacing:.09em}
+footer>div:first-child b{font-size:17px;line-height:1.35;letter-spacing:.12em}
+footer>div:first-child::after{
+  content:"EDITED, DESIGNED & AI-ASSISTED BY YVEN";
+  display:block;margin-top:12px;color:var(--green);font-size:9px;letter-spacing:.11em
+}
+
+@media(max-width:800px){
+  .topline>span:nth-child(2){display:block;max-width:150px;line-height:1.25}
+  .topline>span:nth-child(2)::after{font-size:8px;line-height:1.35;letter-spacing:.07em}
+  .detail-top::after{display:none}
+  footer>div:first-child b{font-size:16px}
+}
